@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "draft-js/dist/Draft.css";
 import "../styles/App.css";
 import Navbar from "./Navbar";
 import Title from "./Title";
 import Category from "./Category";
-import Element from "./Element";
-import LawData from "../mock/lawData.json";
-
-const lawData = LawData.data;
-const elements = lawData.map((data) => (
-  <Element text={data.text} key={data.text} />
-));
+import Elements from "./Elements";
 
 const App = () => {
+  useEffect(() => {
+    console.log("Access to useEffect");
+  });
+
   return (
     <div className="App">
       <Navbar />
@@ -20,7 +18,7 @@ const App = () => {
       <div className="content">
         <div className="box">
           <Category />
-          {elements}
+          <Elements />
         </div>
       </div>
     </div>
